@@ -67,12 +67,14 @@ button:focus {
 	border-color: #666;
 }
 
-header, section, nav, footer, caption {
+header, section, nav, footer, figure, caption {
 	display: flex;
 	justify-content: center;
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
+	margin: 0;
+	padding: 0;
 }
 
 footer {
@@ -88,6 +90,11 @@ h1 {
 h2 {
 	font-size: 30px;
 	margin: 40px 0 -20px 0;
+}
+
+h3 {
+	font-size: 22px;
+	margin: 40px 0 -10px 0;
 }
 
 p {
@@ -155,9 +162,17 @@ blockquote {
 	margin-left: 30px;
 }
 
-.svg-icon {
+.text-shadow {
+	text-shadow: 0 0 8px #000;
+}
+
+.arrow-down {
+	background-color: var(--text);
+	-webkit-mask: url(./img/scroll-down.svg) no-repeat center;
+	mask: url(./img/scroll-down.svg) no-repeat center;
 	width: 48px;
-	margin-top: 12px;
+	height: 48px;
+	margin: 0 auto;
 }
 
 .grid {
@@ -175,6 +190,10 @@ blockquote {
 	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)) !important;
 }
 
+.grid-wide {
+	grid-template-columns: repeat(auto-fill, minmax(500px, 1fr)) !important;
+}
+
 .grid > div {
 	min-height: 200px;
 	/* The properties below make the DIVs grey, for visual purposes in demo */
@@ -188,4 +207,61 @@ blockquote {
 
 .mt {
 	margin-top: 72px;
+}
+
+.mb {
+	margin-bottom: 40px;
+}
+
+.em {
+	padding: 2px 4px 2px 4px;
+	border-radius: 5px;
+	font-weight: bold;
+}
+
+.em-muted {
+	background-color: var(--muted);
+	color: #fff;
+}
+
+/* SCROLL-SPECIFIC ELEMENTS */
+
+[slot="background"] {
+	overflow: hidden;
+}
+
+[slot="foreground"] {
+	pointer-events: none;
+}
+
+[slot="foreground"] section {
+	padding: 100vh 0 100vh 0;
+}
+
+[slot="foreground"] section + section {
+	padding: 0 0 100vh 0;
+}
+
+[slot="foreground"] section div {
+	background-color: #ffffffdd;
+	padding: 12px;
+	pointer-events: all;
+}
+
+[slot="foreground"] section div p {
+	margin: 0;
+}
+
+[slot="foreground"] section div p + p {
+	margin-top: 30px;
+}
+
+[slot="foreground"] section div h3 {
+	margin: 10px 0 20px 0;
+}
+
+.label-block {
+	display: inline-block;
+	text-align: right;
+	width: 85px;
 }
